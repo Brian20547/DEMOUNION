@@ -1,0 +1,103 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e90000; /* Fondo negro */
+    color: #fff; /* Texto en blanco */
+}
+
+/* Header */
+header {
+    background-color: #df0000; /* Fondo negro intenso */
+    color: #fff; /* Texto en blanco */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #fff; /* Texto en blanco */
+}
+
+header a {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Sección de productos */
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Estilos para cada producto */
+.producto {
+    width: 280px;
+    margin: 20px;
+    border: 1px solid #444; /* Borde gris oscuro */
+    padding: 20px;
+    text-align: center;
+    background-color: #222; /* Fondo negro suave */
+    border-radius: 8px;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.producto:hover {
+    box-shadow: 0 4px 10px rgba(223, 216, 216, 0.5); /* Sombra negra al pasar sobre el producto */
+    transform: translateY(-5px);
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.producto span {
+    display: block;
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff; /* Texto blanco */
+}
+
+.producto a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333; /* Botón negro */
+    color: #fff; /* Texto en blanco */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.producto a:hover {
+    background-color: #555; /* Botón gris al pasar el ratón */
+}
+
+/* Diseño responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .producto {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Diseño responsive para pantallas medianas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .producto {
+        width: 45%;
+    }
+}

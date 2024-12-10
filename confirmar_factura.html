@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Factura</title>
+</head>
+<body>
+    <h1>Confirmar Factura</h1>
+    <p>Has ingresado el código de factura: <span id="codigo_factura"></span></p>
+    
+    <script>
+        // Obtener el código de la factura desde la URL
+        const params = new URLSearchParams(window.location.search);
+        const codigo = params.get('codigo');
+        document.getElementById('codigo_factura').textContent = codigo;
+
+        // Aquí puedes agregar más lógica para confirmar la factura si es necesario.
+    </script>
+    
+    <a href="tu_panel_usuario.php">Volver al Panel de Usuario</a>
+</body>
+</html>

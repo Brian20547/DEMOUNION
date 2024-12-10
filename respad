@@ -1,0 +1,54 @@
+<?php
+session_start();
+include './conexionpro.php';  // Conexión a la base de datos
+
+// Verificar si la sesión tiene el código de factura y el factura_id
+if (!isset($_SESSION['factura_id']) || !isset($_SESSION['total_factura'])) {
+    echo "No se ha encontrado información de la factura.";
+    exit;
+}
+
+// Obtener el ID de la factura desde la sesión
+$factura_id = $_SESSION['factura_id'];  // Usamos el factura_id almacenado en la sesión
+$monto = $_SESSION['total_factura'];   // Monto de la factura
+$fecha_pago = date('Y-m-d H:i:s');     // Fecha y hora actual del pago
+$metodo_pago_id = 1;                   // Método de pago, ajusta este valor si el valor es diferente
+$descripcion_pago = $_POST['descripcion_pago'];  // Descripción proporcionada por el cliente
+
+// Verificar si se ha subido un archivo
+if (isset($_FILES['comprobante_pago']) && $_FILES['comprobante_pago']['error'] == 0) {
+    $comprobante = $_FILES['comprobante_pago'];
+
+    // Definir la ruta de destino para el archivo subido
+    $ruta_destino = 'comprobantes/' . basename($comprobante['name']);
+
+    // Verificar si la carpeta de destino existe, si no, crearla
+    if (!is_dir('comprobantes')) {
+        mkdir('comprobantes', 0777, true);
+    }
+
+    // Intentar mover el archivo subido a la carpeta destino
+    if (move_uploaded_file($comprobante['tmp_name'], $ruta_destino)) {
+        // Si el archivo se mueve correctamente, insertar los datos en la base de datos
+
+        // Preparar la consulta para insertar el pago
+        $sql = "INSERT INTO pagos (factura_id, monto, fecha_pago, metodo_pago_id, descripcion) VALUES (?, ?, ?, ?, ?)";
+        if ($stmt = mysqli_prepare($con, $sql)) {
+            // Bind de los parámetros
+            mysqli_stmt_bind_param($stmt, "idsss", $factura_id, $monto, $fecha_pago, $metodo_pago_id, $descripcion_pago);
+
+            // Ejecutar la consulta
+            if (mysqli_stmt_execute($stmt)) {
+                echo "Comprobante de pago subido exitosamente y pago registrado en la base de datos.";
+            } else {
+                echo "Error al registrar el pago en la base de datos: " . mysqli_error($con);
+            }
+        } else {
+            echo "Error al preparar la consulta: " . mysqli_error($con);
+        }
+    } else {
+        echo "Error al mover el archivo a la carpeta de destino.";
+    }
+} else {
+    echo "No se ha subido ningún archivo o el archivo tiene un error.";
+}

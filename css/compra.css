@@ -1,0 +1,152 @@
+/* compra.css */
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #0b0f4b, #0b0f4b);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+header button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    color: #0b0f4b;
+    border: 2px solid #0b0f4b;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 10; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+header button:hover {
+    background-color: #0b0f4b;
+    color: white;
+}
+
+header a img {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+header a img:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+section {
+    width: 85%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Estilo para cada producto */
+.producto {
+    background-color: #fff;
+    width: 220px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+.producto span {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.producto:hover span {
+    color: #20395a;
+}
+
+.producto a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #133980;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.producto a:hover {
+    background-color: #103a79;
+    transform: scale(1.05);
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    section {
+        width: 95%;
+    }
+
+    .producto {
+        width: 100%;
+    }
+
+    header button {
+        top: 15px; /* Ajustar la posición en pantallas pequeñas */
+        transform: none; /* Eliminar la transformación vertical */
+    }
+
+    header a img {
+        top: 15px; /* Ajustar la posición en pantallas pequeñas */
+    }
+
+    header h1 {
+        margin-top: 10px;
+    }
+}

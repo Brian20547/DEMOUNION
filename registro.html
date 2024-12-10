@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="registro.css">
+    <style>
+
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+            background-color: rgb(0, 0, 0);
+            color: rgb(0, 0, 0); /* Para asegurar que el texto sea visible */
+          
+        }
+       
+
+    
+        
+
+        .button-margin {
+        margin-right: 20px; /* Adjust this value based on the space you want */
+    }   
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+    
+        button {
+            margin-right: 50px; /* Ajusta el valor según el espacio que desees */
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro de Usuario</h2>
+        <form action="loginregistro.php" method="POST">
+            <div class="form-group">
+                <label for="txtusuario">Usuario:</label>
+                <input type="text" id="txtusuario" name="txtusuario" required>
+            </div>
+            <div class="form-group">
+                <label for="txtpassword">Contraseña:</label>
+                <input type="password" id="txtpassword" name="txtpassword" required>
+            </div>
+
+            <div class="form-group">
+                <label for="txtcorreo">Correo Electrónico:</label>
+                <input type="email" id="txtcorreo" name="txtcorreo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="txtcelular">Número de Celular:</label>
+                <input type="text" id="txtcelular" name="txtcelular" required>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol" required>
+                    <option value="Usuario">Usuario</option>
+                    <option value="Admin">Admin</option>
+                </select>
+
+
+            </div>
+
+            <div class="form-group hidden" id="pin-group">
+                <label for="admin-pin">PING PARA ROL ADMIN:</label>
+                <input type="password" id="admin-pin" name="admin-pin">
+            </div>
+            <button type="submit" class="button-margin">Registrar</button>
+
+
+            </div>
+
+
+
+            <script>
+                function checkRole() {
+                    var role = document.getElementById("rol").value;
+                    var pinGroup = document.getElementById("pin-group");
+                    if (role === "Admin") {
+                        pinGroup.classList.remove("hidden");
+                    } else {
+                        pinGroup.classList.add("hidden");
+                    }
+                }
+        
+                document.querySelector("form").addEventListener("submit", function(event) {
+                    var role = document.getElementById("rol").value;
+                    var pin = document.getElementById("admin-pin").value;
+                    if (role === "Admin" && pin !== "2424") {
+                        event.preventDefault();
+                        alert("PIN incorrecto. Por favor, inténtelo de nuevo.");
+                    }
+                });
+            </script>
+
+
+        </form>
+    </div>
+</body>
+</html>

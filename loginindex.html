@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proyecto</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        input[type="submit"], input[type="reset"], input[type="button"] {
+            background-color: #28a745; /* Color verde */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+            background-color: #218838; /* Color verde oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+<div class="caja1">
+<form method="post" action="login.php">
+    <div class="formtlo">Iniciar sesión</div>
+    <div class="ub1">&#128273; Ingresar usuario</div>
+    <input type="text" name="txtusuario">
+    <div class="ub1">&#128274; Ingresar password</div>
+    <input type="password" name="txtpassword" id="txtpassword">
+    <div class="ub1">
+        <input type="checkbox" onclick="verpassword()"> Mostrar contraseña
+    </div>
+    <div class="ub1">Rol</div>
+    <select name="rol">
+        <option value="0" style="display:none;"><label>Seleccionar</label></option>
+        <option value="Usuario">Usuario</option>
+        <option value="Admin">Administrador</option>
+    </select>
+    <div align="center">
+        <input type="submit" value="Ingresar">
+        <input type="reset" value="Cancelar">
+    </div>
+</form>
+<!-- Botón de Registro -->
+<div align="center" style="margin-top: 10px;">
+    <input type="button" value="Registrar" onclick="window.location.href='Registro.html'">
+</div>
+</div>
+<script>
+  function verpassword(){
+      var tipo = document.getElementById("txtpassword");
+      if(tipo.type == "password") {
+          tipo.type = "text";
+      } else {
+          tipo.type = "password";
+      }
+  }
+</script>
+</body>
+</html>

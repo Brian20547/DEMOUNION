@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0066cc;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h3 {
+    color: #003366;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #003366;
+}
+
+input[type="text"], textarea, input[type="file"], button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+.error-msg {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.success-msg {
+    color: black;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.estado-factura {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    color: orange;
+}
+
+.estado-confirmado {
+    color: blue;
+}
+
+.estado-pagada {
+    color: blue;
+}
+
+.estado-cancelada {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
